@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.4.3 (RELEASE-2.4.3-ad3323c; 2019-01-21T17:46:06+0000) JAXWS-RI/2.3.2 JAXWS-API/2.3.2 JAXB-RI/2.3.2 JAXB-API/2.3.2 git-revision#unknown. --><xs:schema xmlns:tns="http://statki.lukasz.pl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://statki.lukasz.pl/">
+
+<xs:element name="IncorrectMMSIException" type="tns:IncorrectMMSIException"/>
+
+<xs:element name="IncorrectPortException" type="tns:IncorrectPortException"/>
+
+<xs:element name="dodajPort" type="tns:dodajPort"/>
+
+<xs:element name="dodajPortResponse" type="tns:dodajPortResponse"/>
+
+<xs:element name="dodajStatek" type="tns:dodajStatek"/>
+
+<xs:element name="dodajStatekResponse" type="tns:dodajStatekResponse"/>
+
+<xs:element name="odbierzZgloszenie" type="tns:odbierzZgloszenie"/>
+
+<xs:element name="odbierzZgloszenieResponse" type="tns:odbierzZgloszenieResponse"/>
+
+<xs:element name="pobierzDanePortu" type="tns:pobierzDanePortu"/>
+
+<xs:element name="pobierzDanePortuResponse" type="tns:pobierzDanePortuResponse"/>
+
+<xs:element name="pobierzDaneStatku" type="tns:pobierzDaneStatku"/>
+
+<xs:element name="pobierzDaneStatkuResponse" type="tns:pobierzDaneStatkuResponse"/>
+
+<xs:complexType name="dodajPort">
+<xs:sequence>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="country" type="xs:string" minOccurs="0"/>
+<xs:element name="latitude" type="xs:float"/>
+<xs:element name="longitude" type="xs:float"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="dodajPortResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="odbierzZgloszenie">
+<xs:sequence>
+<xs:element name="MMSI" type="xs:int"/>
+<xs:element name="portName" type="xs:string" minOccurs="0"/>
+<xs:element name="latitude" type="xs:float"/>
+<xs:element name="longitude" type="xs:float"/>
+<xs:element name="knots" type="xs:float"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="odbierzZgloszenieResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="IncorrectMMSIException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="IncorrectPortException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="dodajStatek">
+<xs:sequence>
+<xs:element name="MMSI" type="xs:int"/>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="flag" type="xs:string" minOccurs="0"/>
+<xs:element name="vtype" type="xs:string" minOccurs="0"/>
+<xs:element name="img" type="xs:base64Binary" nillable="true" minOccurs="0"/>
+<xs:element name="grossTonnage" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="dodajStatekResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="pobierzDanePortu">
+<xs:sequence>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="pobierzDanePortuResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:port" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="port">
+<xs:sequence>
+<xs:element name="country" type="xs:string" minOccurs="0"/>
+<xs:element name="latitude" type="xs:float"/>
+<xs:element name="longitude" type="xs:float"/>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="pobierzDaneStatku">
+<xs:sequence>
+<xs:element name="MMSI" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="pobierzDaneStatkuResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:statek" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="statek">
+<xs:sequence>
+<xs:element name="flag" type="xs:string" minOccurs="0"/>
+<xs:element name="grossTonnage" type="xs:int"/>
+<xs:element name="img" type="xs:base64Binary" minOccurs="0"/>
+<xs:element name="MMSI" type="xs:int"/>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="vtype" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
